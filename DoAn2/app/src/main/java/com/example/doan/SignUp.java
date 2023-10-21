@@ -17,5 +17,6 @@ public class SignUp extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Sign Up");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 }
