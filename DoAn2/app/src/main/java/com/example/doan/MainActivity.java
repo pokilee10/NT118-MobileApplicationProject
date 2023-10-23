@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView tvSignUp = (TextView) findViewById(R.id.tvSignUp);
+
         tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
     public void Signup(){
         Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
