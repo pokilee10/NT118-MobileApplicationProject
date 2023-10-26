@@ -3,10 +3,12 @@ package com.example.doan;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -19,11 +21,15 @@ public class Forget extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.tb_toolbar);
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Forget Password");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ImageButton imgbtn_back = (ImageButton) findViewById(R.id.imgbtn_back);
+        imgbtn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Back();
+            }
+        });
 
         final Spinner spinner = (Spinner) findViewById(R.id.spinner_SecurityQuestion);
 
@@ -42,5 +48,10 @@ public class Forget extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(dataAdapter);
+    }
+
+    public void Back(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
