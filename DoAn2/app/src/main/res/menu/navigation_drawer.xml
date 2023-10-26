@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_item"
+        android:title="Lỏ cu bùm">
+        <menu>
+            <item
+                android:id="@+id/inbox_item"
+                android:icon="@drawable/grammar"
+                android:title="Trang chủ"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/outbox_item"
+                android:icon="@drawable/grammar"
+                android:title="Khoe"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/favourites_item"
+                android:icon="@drawable/grammar"
+                android:title="Đĩ"
+                android:checkable="true"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/main_item1"
+        android:title="Lỏ cu chúm">
+        <menu>
+            <item
+                android:id="@+id/search_item"
+                android:icon="@drawable/grammar"
+                android:title="Anh"
+                android:checkable="true"/>
+                //app:showAsAction="ifRoom"/>
+            <item
+                android:id="@+id/rotation_item"
+                android:icon="@drawable/grammar"
+                android:title="Tốn"
+                android:checkable="true"/>
+                //app:showAsAction="ifRoom"/>
+            <item
+                android:id="@+id/accelerator_item"
+                android:icon="@drawable/grammar"
+                android:title="Liền"
+                android:checkable="true"/>
+                //app:showAsAction="ifRoom"/>
+            <item
+                android:id="@+id/dashboard_item"
+                android:icon="@drawable/grammar"
+                android:title="Mê"
+                android:checkable="true"/>
+                //app:showAsAction="ifRoom"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/labels_item"
+        android:title="Anh Tốn Liền">
+        <menu>
+            <item
+                android:id="@+id/label_one"
+                android:icon="@drawable/grammar"
+                android:title="Công Bảng"
+                android:checkable="true"/>
+                //app:showAsAction="ifRoom"/>
+            <item
+                android:id="@+id/label_two"
+                android:icon="@drawable/grammar"
+                android:title="Hữu thiên"
+                android:checkable="true"/>
+                //app:showAsAction="ifRoom"/>
+        </menu>
+    </item>
+</menu>

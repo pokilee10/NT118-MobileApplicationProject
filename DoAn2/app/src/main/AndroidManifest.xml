@@ -13,16 +13,16 @@
         android:theme="@style/Theme.DoAn"
         tools:targetApi="31">
         <activity
+            android:name=".MainMenu"
+            android:exported="false" />
+        <activity
             android:name=".Forget"
             android:exported="true"
-            android:parentActivityName=".MainActivity">
-        </activity>
-
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".SignUp"
             android:exported="true"
-            android:parentActivityName=".MainActivity">
-        </activity>
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
