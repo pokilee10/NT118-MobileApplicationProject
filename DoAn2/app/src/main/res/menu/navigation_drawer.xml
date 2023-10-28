@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn = "navigation_view"
-
-    >
-
+    tools:showIn = "navigation_view">
     <group
         android:checkableBehavior="single">
-
-
         <item
-            android:id="@+id/Ton"
-            android:icon="@drawable/test"
-            android:title="Tốn Liền"/>
-
+            android:id="@+id/nav_home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="Home"/>
         <item
-            android:id="@+id/Ban"
+            android:id="@+id/nav_settings"
             android:icon="@drawable/test"
-            android:title="Công Bản"/>
-
+            android:title="Settings"/>
         <item
-            android:id="@+id/Thien"
-            android:icon="@drawable/test"
-            android:title="Hữu Thiên"/>
+            android:id="@+id/nav_share"
+            android:icon="@drawable/grammar"
+            android:title="Share"/>
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/vocabulary"
+            android:title="About Us"/>
     </group>
-
+    <item
+        android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/baseline_logout_24"
+                android:title="Logout"/>
+        </menu>
+    </item>
 </menu>

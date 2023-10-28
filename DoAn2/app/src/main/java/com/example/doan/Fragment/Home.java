@@ -1,4 +1,4 @@
-package com.example.doan;
+package com.example.doan.Fragment;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.doan.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Thien#newInstance} factory method to
+ * Use the {@link Home#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Thien extends Fragment {
+public class Home extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class Thien extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Thien() {
+    public Home() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class Thien extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Thien.
+     * @return A new instance of fragment Home.
      */
     // TODO: Rename and change types and number of parameters
-    public static Thien newInstance(String param1, String param2) {
-        Thien fragment = new Thien();
+    public static Home newInstance(String param1, String param2) {
+        Home fragment = new Home();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class Thien extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_thien, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 }

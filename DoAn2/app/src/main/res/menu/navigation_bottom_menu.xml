@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/bottom_vocab"
-        android:title="Vocabuary"
-        android:icon="@drawable/vocabulary"/>
-
-    <item
-        android:id="@+id/bottom_grammar"
-        android:title="Grammar"
-        android:icon="@drawable/grammar"/>
-
-    <item
-        android:id="@+id/bottom_test"
-        android:title="Mini test"
+        android:id="@+id/Test"
+        android:title="Tốn"
         android:icon="@drawable/test"/>
+
+    <item
+        android:id="@+id/grammar"
+        android:title="Liền"
+        android:icon="@drawable/grammar"
+        />
+
+    <item
+        android:id="@+id/Lien"
+        android:title="Liền"
+        android:icon="@drawable/icon" />
 </menu>
