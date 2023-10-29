@@ -4,17 +4,17 @@
 
     <item
         android:id="@+id/Test"
-        android:title="Tốn"
+        android:title="Test"
         android:icon="@drawable/test"/>
 
     <item
-        android:id="@+id/grammar"
-        android:title="Liền"
+        android:id="@+id/Grammar"
+        android:title="Grammar"
         android:icon="@drawable/grammar"
         />
 
     <item
-        android:id="@+id/Lien"
-        android:title="Liền"
+        android:id="@+id/Vocab"
+        android:title="Vocabulary"
         android:icon="@drawable/icon" />
 </menu>
