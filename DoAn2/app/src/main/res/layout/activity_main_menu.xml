@@ -34,7 +34,21 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:title="Main Menu"
-            app:titleTextColor="@color/black" />
+            app:titleTextColor="@color/black" >
+            
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/Search_bar"
+                android:drawablePadding="3dp"
+                android:paddingLeft="3dp"
+                android:drawableLeft="@drawable/baseline_search_24"
+                android:background="@drawable/radius_edit_text"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:hint="Search"
+                android:textColorHint="@color/gray"/>
+        </androidx.appcompat.widget.Toolbar>
 
         <FrameLayout
             android:id="@+id/frame_layout"
