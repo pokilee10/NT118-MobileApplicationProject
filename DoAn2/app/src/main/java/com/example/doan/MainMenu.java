@@ -4,12 +4,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.doan.Fragment.About_us;
-import com.example.doan.Grammar.Grammar;
 import com.example.doan.Fragment.Home;
 import com.example.doan.Fragment.Setting;
 import com.example.doan.Fragment.Share;
-import com.example.doan.Fragment.Test;
-import com.example.doan.Fragment.Vocab;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -37,7 +34,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         setContentView(R.layout.activity_main_menu);
 
 
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
@@ -49,27 +46,6 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        bottomNavigationView.setBackground(null);
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-                int itemID = item.getItemId();
-                if (itemID == R.id.Test)
-                {
-                    openFragment(new Test());
-                    return true;
-                }
-                else if (itemID == R.id.Grammar)
-                {
-                    openFragment(new Grammar());
-                    return true;
-                }
-                else if (itemID == R.id.Vocab)
-                {
-                    openFragment(new Vocab());
-                    return true;
-                }
-
-            return true;
-        });
 
         if(savedInstanceState == null )
         {
