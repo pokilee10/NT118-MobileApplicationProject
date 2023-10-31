@@ -3,64 +3,53 @@ package com.example.doan.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.doan.Home.DataClass;
+import com.example.doan.Home.MyAdapter;
 import com.example.doan.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Home#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class Home extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    RecyclerView recyclerView;
+    List<DataClass> dataList;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    DataClass androidData;
 
-    public Home() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Home.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Home newInstance(String param1, String param2) {
-        Home fragment = new Home();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        recyclerView = root.findViewById(R.id.recycleview);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(requireContext(), 1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        dataList = new ArrayList<>();
+
+        androidData = new DataClass("Camera", R.string.camera, "Java", R.drawable.baseline_settings_24);
+        dataList.add(androidData);
+        androidData = new DataClass("RecycleView", R.string.recyclerview, "Kotlin", R.drawable.logoapp_removebg_preview);
+        dataList.add(androidData);
+        androidData = new DataClass("Date Picker", R.string.date, "Java", R.drawable.baseline_settings_24);
+        dataList.add(androidData);
+        androidData = new DataClass("Edit Text", R.string.edit, "Kotlin", R.drawable.baseline_settings_24);
+        dataList.add(androidData);
+        androidData = new DataClass("Rating Bar", R.string.rating, "Java", R.drawable.baseline_settings_24);
+        dataList.add(androidData);
+
+        MyAdapter adapter = new MyAdapter(requireContext(), dataList);
+        recyclerView.setAdapter(adapter);
+        return root; // Return the root view that you inflated.
     }
+
 }
