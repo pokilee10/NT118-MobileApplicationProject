@@ -17,12 +17,13 @@
             android:exported="false" />
         <activity
             android:name=".MainMenu"
-            android:exported="true">
-            <intent-filter>
+            android:exported="true"
+            android:parentActivityName=".MainActivity">
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity
             android:name=".Forget"

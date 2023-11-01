@@ -1,5 +1,6 @@
 package com.example.doan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -77,6 +78,10 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         else if(itemID == R.id.nav_share)
         {
             openFragment(new Share());
+        } else if (itemID == R.id.nav_logout)
+        {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return false;
