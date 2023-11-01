@@ -36,15 +36,15 @@ public class Home extends Fragment {
         recyclerView.setLayoutManager(gridLayoutManager);
         dataList = new ArrayList<>();
 
-        androidData = new DataClass("Camera", R.string.camera, "Java", R.drawable.baseline_settings_24);
+        androidData = new DataClass("Ngữ pháp: Câu", R.string.camera, "Java", R.drawable.grammarcau);
         dataList.add(androidData);
-        androidData = new DataClass("RecycleView", R.string.recyclerview, "Kotlin", R.drawable.logoapp_removebg_preview);
+        androidData = new DataClass("Ngữ pháp: Từ", R.string.recyclerview, "Kotlin", R.drawable.grammartu);
         dataList.add(androidData);
-        androidData = new DataClass("Date Picker", R.string.date, "Java", R.drawable.baseline_settings_24);
+        androidData = new DataClass("Từ vựng", R.string.date, "Java", R.drawable.vocabularyhome);
         dataList.add(androidData);
-        androidData = new DataClass("Edit Text", R.string.edit, "Kotlin", R.drawable.baseline_settings_24);
+        androidData = new DataClass("Kiểm tra", R.string.edit, "Kotlin", R.drawable.testhome);
         dataList.add(androidData);
-        androidData = new DataClass("Rating Bar", R.string.rating, "Java", R.drawable.baseline_settings_24);
+        androidData = new DataClass("Bảng xếp hạng", R.string.rating, "Java", R.drawable.leaderboardhome);
         dataList.add(androidData);
 
         MyAdapter adapter = new MyAdapter(requireContext(), dataList);
