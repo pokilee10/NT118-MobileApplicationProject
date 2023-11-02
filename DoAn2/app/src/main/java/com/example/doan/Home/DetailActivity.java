@@ -10,7 +10,6 @@ import com.example.doan.R;
 
 public class DetailActivity extends AppCompatActivity {
 
-    TextView detailDesc, detailTitle;
     ImageView detailImage;
 
     @Override
@@ -18,18 +17,11 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        detailDesc = findViewById(R.id.detailDesc);
-        detailTitle = findViewById(R.id.detailTitle);
         detailImage = findViewById(R.id.detalImage);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            String title = bundle.getString("Title");
-            String desc = bundle.getString("Desc");
             int imageResource = bundle.getInt("Image");
-
-            detailTitle.setText(title);
-            detailDesc.setText(desc);
             detailImage.setImageResource(imageResource);
         }
     }

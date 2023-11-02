@@ -4,30 +4,4 @@
     <string name="close_nav">Close Navigation Drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="date">A thin wrapper around a millisecond value that allows JDBC to identify this as an SQL DATE
-        value. A milliseconds value represents the number of milliseconds that have passed since January 1, 1970 00:00:00.000 GMT.
-        To conform with the definition of SQL DATE, the millisecond values wrapped by a java.sql.Date instance
-        must be normalized by setting the hours, minutes, seconds, and milliseconds to zero in the particular time zone with which the instance is associated.
-        </string>
-    <string name="rating">A RatingBar is an extension of SeekBar and ProgressBar that shows a rating in stars.
-        The user can touch/drag or use arrow keys to set the rating when using the default size RatingBar.
-        The smaller RatingBar style ( R.attr.ratingBarStyleSmall) and the larger indicator-only style
-        (R.attr.ratingBarStyleIndicator) do not support user interaction and should only be used as indicators.
-        When using a RatingBar that supports user interaction, placing widgets to the left or right of the
-        RatingBar is discouraged.</string>
-    <string name="edit">A TextView displays text to the user and optionally allows them to edit it.
-        A TextView is a complete text editor, however the basic class is configured to not allow editing.
-        </string>
-    <string name="camera">The Android framework includes support for various cameras and camera features
-        available on devices, allowing you to capture pictures and videos in your applications.
-        This document discusses a quick, simple approach to image and video capture and outlines an advanced
-        approach for creating custom camera experiences for your users.</string>
-    <string name="recyclerview">RecyclerView is the ViewGroup that contains the views corresponding to your data.
-        Its a view itself so you add RecyclerView into your layout the way you would add any other UI element.
-        Each individual element in the list is defined by a view holder object.
-        RecyclerView is a ViewGroup added to the android studio as a successor of the GridView and ListView.
-        It is an improvement on both of them and can be found in the latest v-7 support packages.
-        It has been created to make possible construction of any lists with XML layouts as an item
-        which can be customized vastly while improving on the efficiency of ListViews and GridViews.
-    </string>
 </resources>
