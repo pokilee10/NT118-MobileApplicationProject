@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainMenuFolder.GrammarCau">
+    tools:context=".MainMenuFolder.GrammarTu">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GrammarCau"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="432dp" />
+        android:text="GrammarTu"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="379dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

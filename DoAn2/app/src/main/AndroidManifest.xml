@@ -13,7 +13,19 @@
         android:theme="@style/Theme.DoAn"
         tools:targetApi="31">
         <activity
-            android:name=".Grammar.GrammarCau"
+            android:name=".MainMenuFolder.LeaderBoard"
+            android:exported="false" />
+        <activity
+            android:name=".MainMenuFolder.Test"
+            android:exported="false" />
+        <activity
+            android:name=".MainMenuFolder.Vocabulary"
+            android:exported="false" />
+        <activity
+            android:name=".MainMenuFolder.GrammarTu"
+            android:exported="false" />
+        <activity
+            android:name=".MainMenuFolder.GrammarCau"
             android:exported="false" />
         <activity
             android:name=".Home.DetailActivity"

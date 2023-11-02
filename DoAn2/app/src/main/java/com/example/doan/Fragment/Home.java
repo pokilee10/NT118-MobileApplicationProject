@@ -36,15 +36,15 @@ public class Home extends Fragment {
         recyclerView.setLayoutManager(gridLayoutManager);
         dataList = new ArrayList<>();
 
-        androidData = new DataClass( R.drawable.grammarcau);
+        androidData = new DataClass( R.drawable.grammarcau, 1);
         dataList.add(androidData);
-        androidData = new DataClass( R.drawable.grammartu);
+        androidData = new DataClass( R.drawable.grammartu,2);
         dataList.add(androidData);
-        androidData = new DataClass( R.drawable.vocabularyhome);
+        androidData = new DataClass( R.drawable.vocabularyhome,3);
         dataList.add(androidData);
-        androidData = new DataClass( R.drawable.testhome);
+        androidData = new DataClass( R.drawable.testhome,4);
         dataList.add(androidData);
-        androidData = new DataClass( R.drawable.leaderboardhome);
+        androidData = new DataClass( R.drawable.leaderboardhome,5);
         dataList.add(androidData);
 
         MyAdapter adapter = new MyAdapter(requireContext(), dataList);

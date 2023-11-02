@@ -6,14 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.doan.Grammar.GrammarCau;
+import com.example.doan.MainMenuFolder.GrammarCau;
 import com.example.doan.MainActivity;
+import com.example.doan.MainMenuFolder.GrammarTu;
+import com.example.doan.MainMenuFolder.LeaderBoard;
+import com.example.doan.MainMenuFolder.Test;
+import com.example.doan.MainMenuFolder.Vocabulary;
 import com.example.doan.R;
 
 import java.util.List;
@@ -38,18 +41,30 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
+        DataClass data = dataList.get(position);
         holder.recImage.setImageResource(dataList.get(position).getDataImage());
 
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("Image", dataList.get(holder.getAdapterPosition()).getDataImage());
-
-                context.startActivity(intent);*/
-                Intent intent = new Intent(context, GrammarCau.class);
-                context.startActivity(intent);
+                data.getNo();
+                int layoutType = data.getNo();
+                if (layoutType == 1) {
+                    Intent intent = new Intent(context, GrammarCau.class);
+                    context.startActivity(intent);
+                } else if (layoutType == 2) {
+                    Intent intent = new Intent(context, GrammarTu.class);
+                    context.startActivity(intent);
+                } else if (layoutType == 3) {
+                    Intent intent = new Intent(context, Vocabulary.class);
+                    context.startActivity(intent);
+                } else if (layoutType == 4) {
+                    Intent intent = new Intent(context, Test.class);
+                    context.startActivity(intent);
+                } else if (layoutType == 5) {
+                    Intent intent = new Intent(context, LeaderBoard.class);
+                    context.startActivity(intent);
+                }
             }
         });
 
