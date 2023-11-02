@@ -1,5 +1,6 @@
 package com.example.doan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -8,9 +9,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +30,9 @@ public class Forget extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget);
 
+        TextInputLayout email = findViewById(R.id.outlinedTextFieldEmail);
+
+        Button changepass = (Button) findViewById(R.id.filledTonalButtonChangePass);
 
         ImageButton imgbtn_back = (ImageButton) findViewById(R.id.imgbtn_back);
         imgbtn_back.setOnClickListener(new View.OnClickListener() {
@@ -31,23 +42,23 @@ public class Forget extends AppCompatActivity {
             }
         });
 
-        final Spinner spinner = (Spinner) findViewById(R.id.spinner_SecurityQuestion);
+        changepass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String em = String.valueOf(email.getEditText().getText());
+                FirebaseAuth.getInstance().sendPasswordResetEmail(em).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful())
+                        {
+                            Toast.makeText(Forget.this, "Check your mail", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+            }
+        });
 
 
-        List<String> categories = new ArrayList<String>();
-        categories.add("Item 1");
-        categories.add("Item 2");
-        categories.add("Item 3");
-        categories.add("Item 4");
-        categories.add("Item 5");
-        categories.add("Item 6");
-
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
-
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(dataAdapter);
     }
 
     public void Back(){

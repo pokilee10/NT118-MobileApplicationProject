@@ -1,5 +1,6 @@
 package com.example.doan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -8,21 +9,36 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SignUp extends AppCompatActivity {
 
+    private ImageButton imgbtn_back;
+    private Button  SignUp;
+    private TextInputLayout email;
+    private TextInputLayout password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activy_main_signup);
 
-        ImageButton imgbtn_back = (ImageButton) findViewById(R.id.imgbtn_back);
+        imgbtn_back = findViewById(R.id.imgbtn_back);
+        SignUp = findViewById(R.id.filledTonalButtonSignUp);
+        email = findViewById(R.id.outlinedTextFieldEmail);
+        password = findViewById(R.id.outlinedTextFieldPassword);
         imgbtn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,27 +46,35 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
-        final Spinner spinner = (Spinner) findViewById(R.id.spinner_SecurityQuestion);
+        SignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickSignUp();
+            }
+        });
 
-
-        List<String> categories = new ArrayList<String>();
-        categories.add("Item 1");
-        categories.add("Item 2");
-        categories.add("Item 3");
-        categories.add("Item 4");
-        categories.add("Item 5");
-        categories.add("Item 6");
-
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
-
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(dataAdapter);
     }
 
-    public void Back(){
+    private void Back(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+
+    private void onClickSignUp()
+    {
+        String em = String.valueOf(email.getEditText().getText()).toString().trim();
+        String pass = String.valueOf(password.getEditText().getText().toString().trim());
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.createUserWithEmailAndPassword(em, pass)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Toast.makeText(SignUp.this, "Your account has been registered!! Let's login and try our servicec", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
     }
 }
