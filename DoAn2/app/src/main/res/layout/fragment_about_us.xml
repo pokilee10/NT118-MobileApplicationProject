@@ -31,7 +31,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/avatar"
+                    android:background="@drawable/manavatar"
                     android:layout_weight="10"
                     android:scaleType="centerCrop"/>
             </androidx.cardview.widget.CardView>
@@ -42,13 +42,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Họ và tên: Nguyễn Đình Khoe"
+                    android:text="Họ và tên: Nguyễn Đình Khoa"
                     android:layout_marginTop="30dp"
                     android:layout_marginStart="15dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="MSSV: 21522227"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="15dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="E-mail: 21522227@gm.uit.edu.vn"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="15dp"/>
             </LinearLayout>
@@ -79,7 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="10"
-                    android:background="@drawable/avatar"
+                    android:background="@drawable/manavatar"
                     android:scaleType="centerCrop" />
             </LinearLayout>
             <LinearLayout
@@ -89,7 +95,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Họ và tên: Lê Xuân Link"
+                    android:text="Họ và tên: Lê Xuân Linh"
                     android:layout_marginTop="30dp"
                     android:layout_marginStart="15dp"/>
                 <TextView
@@ -101,7 +107,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="E-mail: troilanhnuc@gmail.com"
+                    android:text="E-mail: 21522286@gm.uit.edu.vn"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="15dp"/>
             </LinearLayout>
@@ -130,7 +136,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/avatar"
+                    android:background="@drawable/manavatar"
                     android:layout_weight="10"
                     android:scaleType="centerCrop"/>
             </androidx.cardview.widget.CardView>
@@ -141,13 +147,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Họ và tên: Đẹng Tiến Đẹt"
+                    android:text="Họ và tên: Đặng Tiến Đạt"
                     android:layout_marginTop="30dp"
                     android:layout_marginStart="15dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="MSSV: 21521929"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="15dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="E-mail: 21521929@gm.uit.edu.vn"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="15dp"/>
             </LinearLayout>

@@ -7,7 +7,6 @@ import android.view.MenuItem;
 import com.example.doan.Fragment.About_us;
 import com.example.doan.Fragment.Home;
 import com.example.doan.Fragment.Setting;
-import com.example.doan.Fragment.Share;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -75,10 +74,12 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         {
             openFragment(new About_us());
         }
-        else if(itemID == R.id.nav_share)
+        else if (itemID == R.id.account)
         {
-            openFragment(new Share());
-        } else if (itemID == R.id.nav_logout)
+            Intent intent = new Intent(this, Account.class);
+            startActivity(intent);
+        }
+        else if (itemID == R.id.nav_logout)
         {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
