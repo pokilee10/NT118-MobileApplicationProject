@@ -6,11 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".MainMenuFolder.GrammarTu">
 
-    <TextView
-        android:id="@+id/textView2"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GrammarTu"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="379dp" />
+        android:background="@drawable/grammarword"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtn_back"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/imgbtn_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/back_black_2"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
