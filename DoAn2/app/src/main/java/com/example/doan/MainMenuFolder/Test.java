@@ -9,6 +9,8 @@ import android.widget.ImageButton;
 
 import com.example.doan.MainMenu;
 import com.example.doan.R;
+import com.example.doan.Test.TestGrammar;
+import com.example.doan.Test.TestVocabulary;
 
 public class Test extends AppCompatActivity {
 
@@ -18,10 +20,26 @@ public class Test extends AppCompatActivity {
         setContentView(R.layout.activity_test);
 
         ImageButton imgbtn_back = (ImageButton) findViewById(R.id.imgbtn_back);
+        ImageButton imgbtn_grammar = (ImageButton) findViewById(R.id.imbt_check_grammar);
+        ImageButton imgbtn_vocabulary = (ImageButton) findViewById(R.id.imbt_check_vocabulary);
         imgbtn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Back();
+            }
+        });
+        imgbtn_grammar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Test.this, TestGrammar.class);
+                startActivity(intent);
+            }
+        });
+        imgbtn_vocabulary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Test.this, TestVocabulary.class);
+                startActivity(intent);
             }
         });
     }

@@ -16,7 +16,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="60dp">
-            <ImageView
+            <ImageButton
+                android:id="@+id/imbt_check_grammar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/grammarcheck"/>
@@ -34,7 +35,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="60dp">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/imbt_check_vocabulary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/vocabularycheck"/>

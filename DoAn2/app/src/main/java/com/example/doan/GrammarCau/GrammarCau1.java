@@ -1,4 +1,4 @@
-package com.example.doan.MainMenuFolder;
+package com.example.doan.GrammarCau;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,36 +7,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.doan.GrammarCau.GrammarCau1;
-import com.example.doan.MainActivity;
 import com.example.doan.MainMenu;
+import com.example.doan.MainMenuFolder.GrammarCau;
 import com.example.doan.R;
 
-public class GrammarCau extends AppCompatActivity {
+public class GrammarCau1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_grammar_cau);
+        setContentView(R.layout.activity_grammar_cau1);
         ImageButton imgbtn_back = (ImageButton) findViewById(R.id.imgbtn_back);
-        ImageButton imgbt_1 = (ImageButton) findViewById(R.id.ibt1);
         imgbtn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Back();
             }
         });
-        imgbt_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GrammarCau.this, GrammarCau1.class);
-                startActivity(intent);
-            }
-        });
     }
 
     public void Back(){
-        Intent intent = new Intent(this, MainMenu.class);
+        Intent intent = new Intent(this, GrammarCau.class);
         startActivity(intent);
     }
 }

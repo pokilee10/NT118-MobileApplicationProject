@@ -13,9 +13,24 @@
         android:theme="@style/Theme.DoAn"
         tools:targetApi="31">
         <activity
+            android:name=".Test.TestVocabulary"
+            android:exported="false" />
+        <activity
+            android:name=".Test.TestGrammar"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc1"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.GrammarTu1"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.GrammarCau1"
+            android:exported="false" />
+        <activity
             android:name=".Account"
             android:exported="true"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainMenuFolder.LeaderBoard"
             android:exported="false" />
