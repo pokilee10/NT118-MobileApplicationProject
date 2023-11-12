@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GrammarCau.GrammarCau1">
+    tools:context=".GrammarCau.GrammarCau1_1">
 
     <ImageButton
         android:layout_width="30dp"
@@ -20,7 +20,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Các thì trong Tiếng Anh"
+        android:text="HIỆN TẠI ĐƠN"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,33 +28,14 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="30dp"/>
 
-
     <ImageView
-        android:id="@+id/img1"
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/grammarsentence1_1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_height="420dp"
+        android:src="@drawable/imghtd"
+        app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card1"
-        android:layout_width="384dp"
-        android:layout_height="92dp"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/img1"
-        android:layout_marginTop="17dp">
-        <ImageButton
-            android:id="@+id/ibt1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/htd"/>
-    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

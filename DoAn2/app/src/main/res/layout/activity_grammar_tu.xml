@@ -30,12 +30,12 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card1"
         android:layout_width="384dp"
-        android:layout_height="100dp"
+        android:layout_height="93dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="48dp">
+        android:layout_marginTop="55dp">
         <ImageButton
             android:id="@+id/ibt1"
             android:layout_width="match_parent"

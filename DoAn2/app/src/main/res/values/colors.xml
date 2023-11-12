@@ -14,4 +14,6 @@
     <color name="lavender">#8692f7</color>
     <color name="gray">#808080</color>
     <color name="dark_kaki">#BDB76B</color>
+    <color name="gold">#FFD700</color>
+    <color name="dark_golden_rod">#B8860B</color>
 </resources>
