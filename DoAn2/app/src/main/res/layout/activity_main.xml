@@ -55,17 +55,18 @@
         app:layout_constraintStart_toStartOf="@id/outlinedTextFieldPassword"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outlinedTextFieldUserName"
+        android:id="@+id/outlinedTextFieldEmail"
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/imlogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="Username">
+        android:hint="Email">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="370dp"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -74,7 +75,7 @@
         android:id="@+id/outlinedTextFieldPassword"
         android:layout_width="370dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/outlinedTextFieldUserName"
+        app:layout_constraintTop_toBottomOf="@id/outlinedTextFieldEmail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:passwordToggleEnabled="true"
