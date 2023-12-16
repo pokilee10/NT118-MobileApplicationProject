@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 app:cardElevation="5dp"
@@ -87,7 +87,7 @@
                     android:layout_weight="10"
                     android:background="@drawable/manavatar"
                     android:scaleType="centerCrop" />
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
