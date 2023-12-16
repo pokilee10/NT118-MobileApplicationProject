@@ -29,6 +29,7 @@ public class SignUp extends AppCompatActivity {
     private Button  SignUp;
     private TextInputLayout email;
     private TextInputLayout password;
+    private TextInputLayout verifypass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,8 @@ public class SignUp extends AppCompatActivity {
         SignUp = findViewById(R.id.filledTonalButtonSignUp);
         email = findViewById(R.id.outlinedTextFieldEmail);
         password = findViewById(R.id.outlinedTextFieldPassword);
+        verifypass = findViewById(R.id.outlinedTextFieldVerifyPassword);
+
         imgbtn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +68,26 @@ public class SignUp extends AppCompatActivity {
     {
         String em = String.valueOf(email.getEditText().getText()).toString().trim();
         String pass = String.valueOf(password.getEditText().getText().toString().trim());
+        String verify = String.valueOf(verifypass.getEditText().getText().toString().trim());
+
+        if (em.isEmpty())
+        {
+            Toast.makeText(SignUp.this, "Enter your email !!!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (pass.isEmpty())
+        {
+            Toast.makeText(SignUp.this, "Enter your password", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (verify.isEmpty())
+        {
+            Toast.makeText(SignUp.this, "Enter verify password", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mAuth.createUserWithEmailAndPassword(em, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -73,6 +96,11 @@ public class SignUp extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Toast.makeText(SignUp.this, "Your account has been registered!! Let's login and try our servicec", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                        else
+                        {
+                            Toast.makeText(SignUp.this, "Error", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

@@ -3,12 +3,15 @@ package com.example.doan;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.doan.Fragment.About_us;
 import com.example.doan.Fragment.Home;
 import com.example.doan.Fragment.Setting;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -28,12 +31,15 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     FragmentManager fragmentManager;
     Toolbar toolbar;
     NavigationView navigationView;
+    FirebaseUser user;
+    FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -81,8 +87,11 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         }
         else if (itemID == R.id.nav_logout)
         {
+            FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+            Toast.makeText(this, "Logout successful", Toast.LENGTH_LONG).show();
+            finish();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return false;
