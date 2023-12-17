@@ -1,4 +1,4 @@
-package com.example.doan.GrammarCau;
+package com.example.doan.GrammarCau.Folder1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,15 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.doan.MainMenuFolder.GrammarCau;
+import com.example.doan.GrammarCau.GrammarCau1;
 import com.example.doan.R;
 
-public class GrammarCau1_1 extends AppCompatActivity {
+public class GrammarCau1_7 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_grammar_cau11);
+        setContentView(R.layout.activity_grammar_cau17);
         ImageButton imgbtn_back = (ImageButton) findViewById(R.id.imgbtn_back);
         imgbtn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,6 +24,7 @@ public class GrammarCau1_1 extends AppCompatActivity {
             }
         });
     }
+
     public void Back(){
         Intent intent = new Intent(this, GrammarCau1.class);
         startActivity(intent);
