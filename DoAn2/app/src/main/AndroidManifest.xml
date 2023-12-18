@@ -13,6 +13,21 @@
         android:theme="@style/Theme.DoAn"
         tools:targetApi="31">
         <activity
+            android:name=".GrammarCau.GrammarCau10"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder9.GrammarCau9_2"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder9.GrammarCau9_1"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.GrammarCau9"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.GrammarCau8"
+            android:exported="false" />
+        <activity
             android:name=".GrammarCau.Folder7.GrammarCau7_2"
             android:exported="false" />
         <activity

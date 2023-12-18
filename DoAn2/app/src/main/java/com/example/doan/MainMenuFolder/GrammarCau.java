@@ -9,12 +9,15 @@ import android.widget.ImageButton;
 
 import com.example.doan.GrammarCau.Folder5.GrammarCau5_3;
 import com.example.doan.GrammarCau.GrammarCau1;
+import com.example.doan.GrammarCau.GrammarCau10;
 import com.example.doan.GrammarCau.GrammarCau2;
 import com.example.doan.GrammarCau.GrammarCau3;
 import com.example.doan.GrammarCau.GrammarCau4;
 import com.example.doan.GrammarCau.GrammarCau5;
 import com.example.doan.GrammarCau.GrammarCau6;
 import com.example.doan.GrammarCau.GrammarCau7;
+import com.example.doan.GrammarCau.GrammarCau8;
+import com.example.doan.GrammarCau.GrammarCau9;
 import com.example.doan.MainActivity;
 import com.example.doan.MainMenu;
 import com.example.doan.R;
@@ -99,6 +102,30 @@ public class GrammarCau extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GrammarCau.this, GrammarCau7.class);
+                startActivity(intent);
+            }
+        });
+
+        imgbt_8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GrammarCau.this, GrammarCau8.class);
+                startActivity(intent);
+            }
+        });
+
+        imgbt_9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GrammarCau.this, GrammarCau9.class);
+                startActivity(intent);
+            }
+        });
+
+        imgbt_10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GrammarCau.this, GrammarCau10.class);
                 startActivity(intent);
             }
         });

@@ -20,7 +20,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ĐẠI TỪ QUAN HỆ, TRẠNG TỪ QUAN HỆ"
+        android:text="CÔNG THỨC"
         android:textSize="25dp"
         android:textStyle="bold"
         android:gravity="center"
@@ -37,13 +37,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView"
-        android:layout_marginTop="110dp">
+        android:layout_marginTop="80dp">
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/imgcau91"
+            android:src="@drawable/imgcau71"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

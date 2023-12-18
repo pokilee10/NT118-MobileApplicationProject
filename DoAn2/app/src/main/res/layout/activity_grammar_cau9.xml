@@ -20,7 +20,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mệnh đề quan hệ"
+        android:text="Câu hỏi đuôi"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
                     android:id="@+id/ibt1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cau71"/>
+                    android:background="@drawable/cau91"/>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -79,7 +79,7 @@
                     android:id="@+id/ibt2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/cau72"/>
+                    android:background="@drawable/cau92"/>
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
