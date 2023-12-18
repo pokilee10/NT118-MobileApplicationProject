@@ -10,6 +10,11 @@ import android.widget.ImageButton;
 import com.example.doan.GrammarCau.Folder5.GrammarCau5_3;
 import com.example.doan.GrammarCau.GrammarCau1;
 import com.example.doan.GrammarCau.GrammarCau10;
+import com.example.doan.GrammarCau.GrammarCau11;
+import com.example.doan.GrammarCau.GrammarCau12;
+import com.example.doan.GrammarCau.GrammarCau13;
+import com.example.doan.GrammarCau.GrammarCau14;
+import com.example.doan.GrammarCau.GrammarCau15;
 import com.example.doan.GrammarCau.GrammarCau2;
 import com.example.doan.GrammarCau.GrammarCau3;
 import com.example.doan.GrammarCau.GrammarCau4;
@@ -126,6 +131,46 @@ public class GrammarCau extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GrammarCau.this, GrammarCau10.class);
+                startActivity(intent);
+            }
+        });
+
+        imgbt_11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GrammarCau.this, GrammarCau11.class);
+                startActivity(intent);
+            }
+        });
+
+        imgbt_12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GrammarCau.this, GrammarCau12.class);
+                startActivity(intent);
+            }
+        });
+
+        imgbt_13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GrammarCau.this, GrammarCau13.class);
+                startActivity(intent);
+            }
+        });
+
+        imgbt_14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GrammarCau.this, GrammarCau14.class);
+                startActivity(intent);
+            }
+        });
+
+        imgbt_15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GrammarCau.this, GrammarCau15.class);
                 startActivity(intent);
             }
         });
