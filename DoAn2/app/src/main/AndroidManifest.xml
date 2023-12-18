@@ -13,6 +13,60 @@
         android:theme="@style/Theme.DoAn"
         tools:targetApi="31">
         <activity
+            android:name=".GrammarCau.Folder6.GrammarCau6_6"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder6.GrammarCau6_5"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder6.GrammarCau6_4"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder6.GrammarCau6_3"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder6.GrammarCau6_2"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder6.GrammarCau6_1"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.GrammarCau6"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder5.GrammarCau5_5"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder5.GrammarCau5_4"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder5.GrammarCau5_3"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder5.GrammarCau5_2"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder5.GrammarCau5_1"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.GrammarCau5"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.GrammarCau4"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder3.GrammarCau3_3"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder3.GrammarCau3_2"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.Folder3.GrammarCau3_1"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarCau.GrammarCau3"
+            android:exported="false" />
+        <activity
             android:name=".GrammarCau.Folder2.GrammarCau2_2"
             android:exported="false" />
         <activity
