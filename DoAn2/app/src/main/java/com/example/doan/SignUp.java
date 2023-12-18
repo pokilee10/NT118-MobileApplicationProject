@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -38,6 +39,7 @@ public class SignUp extends AppCompatActivity {
     private TextInputLayout username;
     private FirebaseFirestore fstore;
     private String userID;
+
 
 
     @Override
@@ -73,6 +75,7 @@ public class SignUp extends AppCompatActivity {
     private void Back(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
 
@@ -107,6 +110,19 @@ public class SignUp extends AppCompatActivity {
             Toast.makeText(SignUp.this, "Enter your email !!!", Toast.LENGTH_LONG).show();
             return;
         }
+
+        if (pass.length() < 6)
+        {
+            Toast.makeText(SignUp.this, "Your password must more than 6 character !!!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(verify.compareTo(pass) != 0)
+        {
+            Toast.makeText(SignUp.this, "Enter verify password equal to your password !!!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mAuth.createUserWithEmailAndPassword(em, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -123,10 +139,14 @@ public class SignUp extends AppCompatActivity {
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-                                    Toast.makeText(SignUp.this, "Your account has been registered!! Let's login and try our servicec", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(SignUp.this, "Your account has been registered!! Let's login and try our services", Toast.LENGTH_LONG).show();
                                     finish();
                                 }
                             });
+                        }
+                        else
+                        {
+                            Toast.makeText(SignUp.this, "There are some problem, pls try again", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
