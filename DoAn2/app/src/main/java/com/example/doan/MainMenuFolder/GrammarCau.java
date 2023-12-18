@@ -14,6 +14,7 @@ import com.example.doan.GrammarCau.GrammarCau3;
 import com.example.doan.GrammarCau.GrammarCau4;
 import com.example.doan.GrammarCau.GrammarCau5;
 import com.example.doan.GrammarCau.GrammarCau6;
+import com.example.doan.GrammarCau.GrammarCau7;
 import com.example.doan.MainActivity;
 import com.example.doan.MainMenu;
 import com.example.doan.R;
@@ -31,6 +32,15 @@ public class GrammarCau extends AppCompatActivity {
         ImageButton imgbt_4 = (ImageButton) findViewById(R.id.ibt4);
         ImageButton imgbt_5 = (ImageButton) findViewById(R.id.ibt5);
         ImageButton imgbt_6 = (ImageButton) findViewById(R.id.ibt6);
+        ImageButton imgbt_7 = (ImageButton) findViewById(R.id.ibt7);
+        ImageButton imgbt_8 = (ImageButton) findViewById(R.id.ibt8);
+        ImageButton imgbt_9 = (ImageButton) findViewById(R.id.ibt9);
+        ImageButton imgbt_10 = (ImageButton) findViewById(R.id.ibt10);
+        ImageButton imgbt_11 = (ImageButton) findViewById(R.id.ibt11);
+        ImageButton imgbt_12 = (ImageButton) findViewById(R.id.ibt12);
+        ImageButton imgbt_13 = (ImageButton) findViewById(R.id.ibt13);
+        ImageButton imgbt_14 = (ImageButton) findViewById(R.id.ibt14);
+        ImageButton imgbt_15 = (ImageButton) findViewById(R.id.ibt15);
         imgbtn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +91,14 @@ public class GrammarCau extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GrammarCau.this, GrammarCau6.class);
+                startActivity(intent);
+            }
+        });
+
+        imgbt_7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GrammarCau.this, GrammarCau7.class);
                 startActivity(intent);
             }
         });
