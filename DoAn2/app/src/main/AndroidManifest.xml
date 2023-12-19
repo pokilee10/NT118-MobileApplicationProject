@@ -13,6 +13,84 @@
         android:theme="@style/Theme.DoAn"
         tools:targetApi="31">
         <activity
+            android:name=".GrammarWord.GrammarTu10"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.GrammarTu9"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.GrammarTu8"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.GrammarTu7"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder6.GrammarTu6_2"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder6.GrammarTu6_1"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.GrammarTu6"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder5.GrammarTu5_4"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder5.GrammarTu5_3"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder5.GrammarTu5_2"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder5.GrammarTu5_1"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.GrammarTu5"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder4.GrammarTu4_5"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder4.GrammarTu4_4"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder4.GrammarTu4_3"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder4.GrammarTu4_2"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder4.GrammarTu4_1"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.GrammarTu4"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder3.GrammarTu3_2"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder3.GrammarTu3_1"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.GrammarTu3"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder2.GrammarTu2_4"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder2.GrammarTu2_3"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder2.GrammarTu2_2"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.Folder2.GrammarTu2_1"
+            android:exported="false" />
+        <activity
+            android:name=".GrammarWord.GrammarTu2"
+            android:exported="false" />
+        <activity
             android:name=".GrammarCau.GrammarCau15"
             android:exported="false" />
         <activity
