@@ -19,7 +19,15 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -84,7 +92,42 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
+                /*DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
+                Query checkUserDatabase = reference.orderByChild("username").equalTo(em);
 
+                checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists())
+                        {
+                            email.setError(null);
+                            String passfromDB = snapshot.child(em).child("password").getValue(String.class);
+
+                            if(!Objects.equals(passfromDB, "123456"))
+                            {
+                                email.setError(null);
+                                Intent intent = new Intent(MainActivity.this, MainMenu.class);
+
+                                startActivity(intent);
+                            }
+                            else
+                            {
+                                password.setError("Invalid Credentials");
+                                password.requestFocus();
+                            }
+                        }
+                        else
+                        {
+                            email.setError("User does not exist");
+                            email.requestFocus();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });*/
             }
         });
 
