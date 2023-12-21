@@ -13,6 +13,33 @@
         android:theme="@style/Theme.DoAn"
         tools:targetApi="31">
         <activity
+            android:name=".Vocabulary.Voc10"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc9"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc8"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc7"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc6"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc5"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc4"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc3"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc2"
+            android:exported="false" />
+        <activity
             android:name=".GrammarWord.GrammarTu10"
             android:exported="false" />
         <activity

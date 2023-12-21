@@ -12,9 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.doan.MainMenuFolder.GrammarCau;
 import com.example.doan.MainMenuFolder.Vocabulary;
 import com.example.doan.R;
 import com.example.doan.Vocab;
@@ -24,14 +22,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Voc1 extends AppCompatActivity {
+public class Voc6 extends AppCompatActivity {
 
     private int index = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_voc1);
+        setContentView(R.layout.activity_voc6);
         Button btnNext = (Button) findViewById(R.id.btnNextQues);
         Button btnBack = (Button) findViewById(R.id.btnBackQues);
         TextView textWord = (TextView) findViewById(R.id.textViewVoc);
@@ -51,7 +49,7 @@ public class Voc1 extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         String indexString = Integer.toString(index);
-        DatabaseReference myRef = database.getReference("vocab").child("contracts").child(indexString);
+        DatabaseReference myRef = database.getReference("vocab").child("computers").child(indexString);
 
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
@@ -87,7 +85,7 @@ public class Voc1 extends AppCompatActivity {
                 {
                     btnBack.setEnabled(true);
                 }
-                if (index == 12)
+                if (index == 13)
                 {
                     btnNext.setEnabled(false);
                 } else
@@ -95,8 +93,8 @@ public class Voc1 extends AppCompatActivity {
                     btnNext.setEnabled(true);
                 }
                 String indexString = Integer.toString(index);
-                textNumTu.setText(indexString+"/12");
-                DatabaseReference myRef = database.getReference("vocab").child("contracts").child(indexString);
+                textNumTu.setText(indexString+"/13");
+                DatabaseReference myRef = database.getReference("vocab").child("computers").child(indexString);
 
                 // Read from the database
                 myRef.addValueEventListener(new ValueEventListener() {
@@ -132,7 +130,7 @@ public class Voc1 extends AppCompatActivity {
                 {
                     btnBack.setEnabled(true);
                 }
-                if (index == 12)
+                if (index == 13)
                 {
                     btnNext.setEnabled(false);
                 } else
@@ -140,8 +138,8 @@ public class Voc1 extends AppCompatActivity {
                     btnNext.setEnabled(true);
                 }
                 String indexString = Integer.toString(index);
-                textNumTu.setText(indexString+"/12");
-                DatabaseReference myRef = database.getReference("vocab").child("contracts").child(indexString);
+                textNumTu.setText(indexString+"/13");
+                DatabaseReference myRef = database.getReference("vocab").child("computers").child(indexString);
 
                 // Read from the database
                 myRef.addValueEventListener(new ValueEventListener() {
