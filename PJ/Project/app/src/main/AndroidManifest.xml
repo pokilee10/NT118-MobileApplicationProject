@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -17,6 +18,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAn"
         tools:targetApi="31">
+        <activity
+            android:name=".SearchDictionary"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc10"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc9"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc8"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc7"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc6"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc5"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc4"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc3"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulary.Voc2"
+            android:exported="false" />
         <activity
             android:name=".GrammarWord.GrammarTu10"
             android:exported="false" />
