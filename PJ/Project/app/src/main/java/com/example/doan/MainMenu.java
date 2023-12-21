@@ -88,7 +88,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
-
+        //String userID = user.getUid();
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 

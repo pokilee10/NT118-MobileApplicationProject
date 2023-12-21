@@ -141,9 +141,10 @@ public class SignUp extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             database = FirebaseDatabase.getInstance();
+                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
                             databaseReference = database.getReference("users");
-                            ReadWriteUserDetail readWriteUserDetail = new ReadWriteUserDetail(usern, em, pass);
-                            databaseReference.child(usern).setValue(readWriteUserDetail);
+                            ReadWriteUserDetail readWriteUserDetail = new ReadWriteUserDetail(em, pass, usern);
+                            databaseReference.child(firebaseUser.getUid()).setValue(readWriteUserDetail);
                             Toast.makeText(SignUp.this, "Your account has been registered!! Let's login and try our services", Toast.LENGTH_LONG).show();
 
                         }
