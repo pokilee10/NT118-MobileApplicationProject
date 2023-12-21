@@ -2,11 +2,19 @@ package com.example.doan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
+import android.webkit.WebView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doan.GrammarCau.Fragment.About_us;
 import com.example.doan.GrammarCau.Fragment.Home;
+import com.example.doan.GrammarCau.Fragment.SearchDictionary;
 import com.example.doan.GrammarCau.Fragment.Setting;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -23,6 +31,13 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainMenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -33,10 +48,43 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     NavigationView navigationView;
     FirebaseUser user;
     FirebaseAuth auth;
+    private AutoCompleteTextView searchEditText;
+    private WebView webView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        searchEditText = findViewById(R.id.Search_bar);
+
+        List<String> vocabularyList = readVocabularyFromFile("vocabulary.txt");
+
+        // Tạo ArrayAdapter cho AutoCompleteTextView
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_dropdown_item_1line,
+                vocabularyList
+        );
+
+        searchEditText.setAdapter(adapter);
+
+        searchEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                SearchDictionary searchDictionary = new SearchDictionary();
+
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+                Bundle data = new Bundle();
+                data.putString("word", searchEditText.getText().toString());
+
+                searchDictionary.setArguments(data);
+                fragmentTransaction.replace(R.id.frame_layout, searchDictionary).commit();
+
+                return true;
+            }
+        });
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -63,6 +111,21 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         openFragment(new Home());
 
 
+    }
+
+    private List<String> readVocabularyFromFile(String fileName) {
+        List<String> vocabularyList = new ArrayList<>();
+        try {
+            InputStream inputStream = getAssets().open(fileName);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                vocabularyList.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return vocabularyList;
     }
 
     @Override
