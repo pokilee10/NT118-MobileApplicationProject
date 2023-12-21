@@ -11,7 +11,7 @@
     tools:context=".MainMenu">
 
 
-    
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,8 +35,8 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="Main Menu"
             app:titleTextColor="@color/black" >
-            
-            <AutoCompleteTextView
+
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:id="@+id/Search_bar"
