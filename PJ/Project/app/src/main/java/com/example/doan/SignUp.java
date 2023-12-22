@@ -42,6 +42,8 @@ public class SignUp extends AppCompatActivity {
     private TextInputLayout password;
     private TextInputLayout verifypass;
     private TextInputLayout username;
+    private TextInputLayout phonenumber;
+    private TextInputLayout address;
     private FirebaseFirestore fstore;
     private String userID;
 
@@ -61,6 +63,8 @@ public class SignUp extends AppCompatActivity {
         password = findViewById(R.id.outlinedTextFieldPassword);
         verifypass = findViewById(R.id.outlinedTextFieldVerifyPassword);
         username = findViewById(R.id.outlinedTextFieldUserName);
+        phonenumber = findViewById(R.id.outlinedTextFieldPhoneNumber);
+        address = findViewById(R.id.outlinedTextFieldAddress);
 
         imgbtn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +95,9 @@ public class SignUp extends AppCompatActivity {
         String pass = String.valueOf(password.getEditText().getText().toString().trim());
         String verify = String.valueOf(verifypass.getEditText().getText().toString().trim());
         String usern = String.valueOf(username.getEditText().getText().toString().trim());
-
+        String phonenum = String.valueOf(phonenumber.getEditText().getText().toString().trim());
+        String addr = String.valueOf(address.getEditText().getText().toString().trim());
+        String rank = "10";
 
         if (usern.isEmpty())
         {
@@ -117,6 +123,18 @@ public class SignUp extends AppCompatActivity {
             return;
         }
 
+        if (phonenum.isEmpty())
+        {
+            Toast.makeText(SignUp.this, "Enter your phone number !!!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (addr.isEmpty())
+        {
+            Toast.makeText(SignUp.this, "Enter your address !!!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         if (pass.length() < 6)
         {
             Toast.makeText(SignUp.this, "Your password must more than 6 character !!!", Toast.LENGTH_LONG).show();
@@ -130,9 +148,6 @@ public class SignUp extends AppCompatActivity {
         }
 
 
-
-
-
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mAuth.createUserWithEmailAndPassword(em, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -143,7 +158,7 @@ public class SignUp extends AppCompatActivity {
                             database = FirebaseDatabase.getInstance();
                             FirebaseUser firebaseUser = mAuth.getCurrentUser();
                             databaseReference = database.getReference("users");
-                            ReadWriteUserDetail readWriteUserDetail = new ReadWriteUserDetail(em, pass, usern);
+                            ReadWriteUserDetail readWriteUserDetail = new ReadWriteUserDetail(usern, em, pass, phonenum, addr, rank);
                             databaseReference.child(firebaseUser.getUid()).setValue(readWriteUserDetail);
                             Toast.makeText(SignUp.this, "Your account has been registered!! Let's login and try our services", Toast.LENGTH_LONG).show();
 
