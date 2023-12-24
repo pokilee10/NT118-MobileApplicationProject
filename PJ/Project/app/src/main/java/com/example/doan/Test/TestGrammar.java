@@ -36,19 +36,16 @@ public class TestGrammar extends AppCompatActivity {
 
     String Ans;
     private int index = 1;
+    private int numques = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testgrammar);
-
-        TextView tvQues = (TextView) findViewById(R.id.textViewQues);
-        Button btnA = (Button) findViewById(R.id.btnAns1);
-        Button btnB = (Button) findViewById(R.id.btnAns2);
-        Button btnC = (Button) findViewById(R.id.btnAns3);
-        Button btnD = (Button) findViewById(R.id.btnAns4);
+        
         Button btnNext = (Button) findViewById(R.id.btnNextQues);
-        Button btnBack = (Button) findViewById(R.id.btnBackQues);
+        TextView tvQuesCount = (TextView) findViewById(R.id.textViewQuesCount);
+        ProgressBar progressBarQues = (ProgressBar) findViewById(R.id.progressQues);
 
         imgbtn_back = findViewById(R.id.imgbtn_back);
         tvQuesTime = findViewById(R.id.textViewQuesTime);
@@ -68,10 +65,17 @@ public class TestGrammar extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                count.cancel();
+                ResetClock();
+                count.start();
                 index += 1;
+                numques += 1;
+                progressBarQues.setProgress(progressBarQues.getProgress()+10);
+                if (numques == 10) btnNext.setEnabled(false);
+                String numQuesString = Integer.toString(numques);
+                tvQuesCount.setText(numQuesString + "/10");
                 RefreshButton();
                 LoadQues();
-                //ClickAns();
             }
         });
     }
@@ -90,12 +94,15 @@ public class TestGrammar extends AppCompatActivity {
             @Override
             public void onFinish() {
                 tvQuesTime.setText("0s");
+                Button btnNext = (Button) findViewById(R.id.btnNextQues);
+                if (numques < 10) btnNext.performClick();
                 Toast.makeText(TestGrammar.this, "Time's up", Toast.LENGTH_SHORT).show();
             }
         };
     }
 
     public void Back() {
+        count.cancel();
         Intent intent = new Intent(this, Test.class);
         startActivity(intent);
     }
@@ -117,6 +124,11 @@ public class TestGrammar extends AppCompatActivity {
         Button btnB = (Button) findViewById(R.id.btnAns2);
         Button btnC = (Button) findViewById(R.id.btnAns3);
         Button btnD = (Button) findViewById(R.id.btnAns4);
+
+        btnA.setEnabled(true);
+        btnB.setEnabled(true);
+        btnC.setEnabled(true);
+        btnD.setEnabled(true);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         String indexString = Integer.toString(index);
@@ -155,6 +167,10 @@ public class TestGrammar extends AppCompatActivity {
         btnA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnA.setEnabled(false);
+                btnB.setEnabled(false);
+                btnC.setEnabled(false);
+                btnD.setEnabled(false);
                 if (btnA.getText().toString() == Ans)
                 {
                     btnA.setTextColor(0xFF00FF00);
@@ -170,6 +186,10 @@ public class TestGrammar extends AppCompatActivity {
         btnB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnA.setEnabled(false);
+                btnB.setEnabled(false);
+                btnC.setEnabled(false);
+                btnD.setEnabled(false);
                 String b = btnB.getText().toString();
                 if (b.equals(Ans))
                 {
@@ -186,6 +206,10 @@ public class TestGrammar extends AppCompatActivity {
         btnC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnA.setEnabled(false);
+                btnB.setEnabled(false);
+                btnC.setEnabled(false);
+                btnD.setEnabled(false);
                 if (btnC.getText().toString() == Ans)
                 {
                     btnC.setTextColor(0xFF00FF00);
@@ -201,6 +225,10 @@ public class TestGrammar extends AppCompatActivity {
         btnD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnA.setEnabled(false);
+                btnB.setEnabled(false);
+                btnC.setEnabled(false);
+                btnD.setEnabled(false);
                 if (btnD.getText().toString() == Ans)
                 {
                     btnD.setTextColor(0xFF00FF00);
@@ -227,4 +255,10 @@ public class TestGrammar extends AppCompatActivity {
         btnD.setTextColor(0xFF000000);
     }
 
+    public void ResetClock() {
+        ProgressBar progressBarQuesTime = (ProgressBar) findViewById(R.id.progressBarQuesTime);
+        TextView textViewQuesTime = (TextView) findViewById(R.id.textViewQuesTime);
+        textViewQuesTime.setText("30s");
+        progressBarQuesTime.setProgress(300);
+    }
 }
