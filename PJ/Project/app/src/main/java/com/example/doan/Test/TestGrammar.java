@@ -33,8 +33,9 @@ public class TestGrammar extends AppCompatActivity {
     TextView tvQuesTime;
     CountDownTimer count;
     ProgressBar progressBarQuesTime;
-
     String Ans;
+    private int numCorrect = 0;
+    private int numWrong = 0;
     private int index = 1;
     private int numques = 1;
 
@@ -42,10 +43,12 @@ public class TestGrammar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testgrammar);
-        
+
         Button btnNext = (Button) findViewById(R.id.btnNextQues);
         TextView tvQuesCount = (TextView) findViewById(R.id.textViewQuesCount);
         ProgressBar progressBarQues = (ProgressBar) findViewById(R.id.progressQues);
+        Button btnSubmit = (Button) findViewById(R.id.btnSubmit);
+
 
         imgbtn_back = findViewById(R.id.imgbtn_back);
         tvQuesTime = findViewById(R.id.textViewQuesTime);
@@ -76,6 +79,20 @@ public class TestGrammar extends AppCompatActivity {
                 tvQuesCount.setText(numQuesString + "/10");
                 RefreshButton();
                 LoadQues();
+            }
+        });
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentResult = new Intent();
+                intentResult.setClass(TestGrammar.this, TestResult.class);
+                String indexStringCorrect = Integer.toString(numCorrect);
+                String indexStringWrong = Integer.toString(numWrong);
+                intentResult.putExtra("numCorrect", indexStringCorrect);
+                intentResult.putExtra("numWrong", indexStringWrong);
+                startActivity(intentResult);
+                count.cancel();
             }
         });
     }
@@ -171,12 +188,15 @@ public class TestGrammar extends AppCompatActivity {
                 btnB.setEnabled(false);
                 btnC.setEnabled(false);
                 btnD.setEnabled(false);
-                if (btnA.getText().toString() == Ans)
+                String a = btnA.getText().toString();
+                if (a.equals(Ans))
                 {
+                    numCorrect++;
                     btnA.setTextColor(0xFF00FF00);
                 }
                 else
                 {
+                    numWrong++;
                     btnA.setTextColor(0xFFFF0000);
                     CheckAns();
                 }
@@ -193,10 +213,12 @@ public class TestGrammar extends AppCompatActivity {
                 String b = btnB.getText().toString();
                 if (b.equals(Ans))
                 {
+                    numCorrect++;
                     btnB.setTextColor(0xFF00FF00);
                 }
                 else
                 {
+                    numWrong++;
                     btnB.setTextColor(0xFFFF0000);
                     CheckAns();
                 }
@@ -210,12 +232,14 @@ public class TestGrammar extends AppCompatActivity {
                 btnB.setEnabled(false);
                 btnC.setEnabled(false);
                 btnD.setEnabled(false);
-                if (btnC.getText().toString() == Ans)
+                if (btnC.getText().toString().equals(Ans))
                 {
+                    numCorrect++;
                     btnC.setTextColor(0xFF00FF00);
                 }
                 else
                 {
+                    numWrong++;
                     btnC.setTextColor(0xFFFF0000);
                     CheckAns();
                 }
@@ -229,12 +253,14 @@ public class TestGrammar extends AppCompatActivity {
                 btnB.setEnabled(false);
                 btnC.setEnabled(false);
                 btnD.setEnabled(false);
-                if (btnD.getText().toString() == Ans)
+                if (btnD.getText().toString().equals(Ans))
                 {
+                    numCorrect++;
                     btnD.setTextColor(0xFF00FF00);
                 }
                 else
                 {
+                    numWrong++;
                     btnD.setTextColor(0xFFFF0000);
                     CheckAns();
                 }
