@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 import com.example.doan.MainMenu;
 import com.example.doan.R;
 import com.example.doan.Test.TestGrammar;
+import com.example.doan.Test.TestGrammarStart;
+import com.example.doan.Test.TestVocabStart;
 import com.example.doan.Test.TestVocabulary;
 
 public class Test extends AppCompatActivity {
@@ -31,14 +33,14 @@ public class Test extends AppCompatActivity {
         imgbtn_grammar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Test.this, TestGrammar.class);
+                Intent intent = new Intent(Test.this, TestGrammarStart.class);
                 startActivity(intent);
             }
         });
         imgbtn_vocabulary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Test.this, TestVocabulary.class);
+                Intent intent = new Intent(Test.this, TestVocabStart.class);
                 startActivity(intent);
             }
         });

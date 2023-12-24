@@ -1,10 +1,12 @@
 package com.example.doan;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -81,6 +83,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
                 searchDictionary.setArguments(data);
                 fragmentTransaction.replace(R.id.frame_layout, searchDictionary).commit();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(searchEditText.getWindowToken(), 0);
 
                 return true;
             }

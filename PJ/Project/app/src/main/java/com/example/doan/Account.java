@@ -68,13 +68,11 @@ public class Account extends AppCompatActivity {
         setContentView(R.layout.activity_account);
 
         ImageButton back = (ImageButton) findViewById(R.id.imgbtn_back);
-        changeInfo = findViewById(R.id.btnChangeInfo);
         tvusername = findViewById(R.id.tvName);
         tvemail = findViewById(R.id.tvEmail);
         tvphonenumber = findViewById(R.id.tvPhonenumber);
         tvrank = findViewById(R.id.tvRank);
         avatar = findViewById(R.id.img_avatar);
-        avatar2 = findViewById(R.id.img_avatar2);
         tvaddress = findViewById(R.id.tvAddress);
 
         mAuth = FirebaseAuth.getInstance();
@@ -86,12 +84,12 @@ public class Account extends AppCompatActivity {
         Picasso.get().load(uri).into(avatar);
         Glide.with(Account.this).load(uri).into(avatar);
 
-        changeInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Change();
-            }
-        });
+//        changeInfo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Change();
+//            }
+//        });
 
         avatar.setOnClickListener(new View.OnClickListener() {
             @Override
