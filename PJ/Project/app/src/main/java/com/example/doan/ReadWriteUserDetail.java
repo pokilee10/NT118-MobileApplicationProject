@@ -16,6 +16,15 @@ public class ReadWriteUserDetail {
         this.username =username;
         this.email = email;
     }
+
+    public ReadWriteUserDetail(String username, String phonenumber, String address, int a)
+    {
+        this.username =username;
+        this.phonenumber = phonenumber;
+        this.address = address;
+        a = 1;
+    }
+
     public ReadWriteUserDetail(String username, String email, String password, String phonenumber, String address, String rank)
     {
         this.username =username;
