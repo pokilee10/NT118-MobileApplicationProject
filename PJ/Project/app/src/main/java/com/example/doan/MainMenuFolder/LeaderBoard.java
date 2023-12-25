@@ -2,6 +2,7 @@ package com.example.doan.MainMenuFolder;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,11 +23,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LeaderBoard extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    ArrayList<ReadWriteUserDetail> list;
+    List<ReadWriteUserDetail> list;
     DatabaseReference databaseReference;
     LeaderboardAdapter adapter;
 
@@ -43,21 +45,38 @@ public class LeaderBoard extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.recylerviewLeaderboard);
-        databaseReference = FirebaseDatabase.getInstance().getReference("users");
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
+
+        //databaseReference = FirebaseDatabase.getInstance().getReference("users");
         list = new ArrayList<>();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new LeaderboardAdapter(this, list);
+        adapter = new LeaderboardAdapter(list);
         recyclerView.setAdapter(adapter);
+
+        getListUserfromRealtimeDTB();
+
+    }
+
+    private void getListUserfromRealtimeDTB()
+    {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("users");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot: snapshot.getChildren())
+                for(DataSnapshot dataSnapshot : snapshot.getChildren())
                 {
                     ReadWriteUserDetail readWriteUserDetail = dataSnapshot.getValue(ReadWriteUserDetail.class);
                     list.add(readWriteUserDetail);
                 }
+                list.stream().count();
                 adapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -65,8 +84,6 @@ public class LeaderBoard extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     public void Back(){
