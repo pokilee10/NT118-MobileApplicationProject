@@ -1,14 +1,43 @@
 package com.example.doan;
 
 public class ReadWriteUserDetail {
-    public String username, phonenumber, email, address, password, rank;
+    public String username, phonenumber, email, address, password, rank, score;
 
     public ReadWriteUserDetail(){}
-    public ReadWriteUserDetail(String email, String password, String username)
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public ReadWriteUserDetail(String username, String score, String rank)
     {
         this.username =username;
-        this.email = email;
-        this.password = password;
+        this.score = score;
+        this.rank = rank;
     }
 
     public ReadWriteUserDetail(String username, String email)
