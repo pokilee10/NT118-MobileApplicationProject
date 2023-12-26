@@ -1,7 +1,6 @@
 package com.example.doan.Test;
 
 import static com.example.doan.Account.firebaseUser;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,11 +35,12 @@ import java.util.List;
 import java.util.Map;
 
 public class TestResult extends AppCompatActivity {
-
     int score;
     int numberCorrect;
     String username, userid;
     private FirebaseAuth mAuth;
+    public static String numCor;
+    public static String numWro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,40 @@ public class TestResult extends AppCompatActivity {
         userid = firebaseUser.getUid();
 
         if (numCorrect != null || numWrong != null) {
-
+            numCor = numCorrect;
+            numWro = numWrong;
+        }
+        TextView tvNumNotAns = (TextView) findViewById(R.id.tvNumNotAns);
+        tvNumCorrect.setText(numCor);
+        tvNumWrong.setText(numWro);
+        int numberCorrect = Integer.parseInt(numCor);
+        int numberWrong = Integer.parseInt(numWro);
+        int index = numberCorrect * 10;
+        progressBar.setProgress(index);
+        tvCorrect.setText(index + "%");
+        String indexStringNotAns = Integer.toString(10 - numberCorrect - numberWrong);
+        tvNumNotAns.setText(indexStringNotAns);
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(TestResult.this, Test.class);
+                ViewResult.listItems.clear();
+                startActivity(intent1);
+            }
+        });
+        btnViewResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewResult = new Intent(TestResult.this, ViewResult.class);
+                startActivity(viewResult);
+            }
+        });
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference =  firebaseDatabase.getReference("users");
+        databaseReference.child("1").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+              
             TextView tvNumNotAns = (TextView) findViewById(R.id.tvNumNotAns);
             tvNumCorrect.setText(numCorrect);
             tvNumWrong.setText(numWrong);
@@ -113,6 +146,10 @@ public class TestResult extends AppCompatActivity {
                     username = readWriteUserDetail.username;
                 }
             }
+
+
+            }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

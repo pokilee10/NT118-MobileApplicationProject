@@ -38,26 +38,27 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
         holder.tvAns2.setText("B. " + listItem.getAns2());
         holder.tvAns3.setText("C. " + listItem.getAns3());
         holder.tvAns4.setText("D. " + listItem.getAns4());
-        if (listItem.getPos() == 1) {
+        if (listItem.getPos() == 0) {
+        } else if (listItem.getPos() == 1) {
             if (listItem.getAns1().equals(listItem.getResult())) {
                 holder.tvAns1.setTextColor(0xFF00FF00);
             } else {
                 holder.tvAns1.setTextColor(0xFFFF0000);
             }
         } else if (listItem.getPos() == 2) {
-            if (listItem.getAns1().equals(listItem.getResult())) {
+            if (listItem.getAns2().equals(listItem.getResult())) {
                 holder.tvAns2.setTextColor(0xFF00FF00);
             } else {
                 holder.tvAns2.setTextColor(0xFFFF0000);
             }
         } else if (listItem.getPos() == 3) {
-            if (listItem.getAns1().equals(listItem.getResult())) {
+            if (listItem.getAns3().equals(listItem.getResult())) {
                 holder.tvAns3.setTextColor(0xFF00FF00);
             } else {
                 holder.tvAns3.setTextColor(0xFFFF0000);
             }
         } else if (listItem.getPos() == 4) {
-            if (listItem.getAns1().equals(listItem.getResult())) {
+            if (listItem.getAns4().equals(listItem.getResult())) {
                 holder.tvAns4.setTextColor(0xFF00FF00);
             } else {
                 holder.tvAns4.setTextColor(0xFFFF0000);
