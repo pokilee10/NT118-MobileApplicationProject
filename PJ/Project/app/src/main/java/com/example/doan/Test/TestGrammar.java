@@ -28,8 +28,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
+import java.util.Set;
 
 public class TestGrammar extends AppCompatActivity {
 
@@ -42,6 +46,10 @@ public class TestGrammar extends AppCompatActivity {
     private int numWrong = 0;
     private int index = 1;
     private int numques = 1;
+
+    private List<Integer> generatedNumbers = new ArrayList<>();
+    private Random random = new Random();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +84,7 @@ public class TestGrammar extends AppCompatActivity {
                 count.cancel();
                 ResetClock();
                 count.start();
-                index += 1;
+                //index += 1;
                 numques += 1;
                 progressBarQues.setProgress(progressBarQues.getProgress()+10);
                 if (numques == 10) btnNext.setEnabled(false);
@@ -117,7 +125,11 @@ public class TestGrammar extends AppCompatActivity {
             public void onFinish() {
                 tvQuesTime.setText("0s");
                 Button btnNext = (Button) findViewById(R.id.btnNextQues);
-                if (numques < 10) btnNext.performClick();
+                if (numques < 10) {
+                    ViewResult.listItems.add(listItem);
+                    listItem = null;
+                    btnNext.performClick();
+                }
                 Toast.makeText(TestGrammar.this, "Time's up", Toast.LENGTH_SHORT).show();
             }
         };
@@ -153,7 +165,8 @@ public class TestGrammar extends AppCompatActivity {
         btnD.setEnabled(true);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        String indexString = Integer.toString(index);
+
+        String indexString = Integer.toString(generateUniqueRandomNumber(1, 10));
         DatabaseReference myRef = database.getReference("testgrammar").child(indexString);
 
         // Read from the database
@@ -163,12 +176,33 @@ public class TestGrammar extends AppCompatActivity {
                 TestClass test = snapshot.getValue(TestClass.class);
                 if (test != null) {
                     tvQues.setText(test.ques);
-                    btnA.setText(test.ans1);
-                    btnB.setText(test.ans2);
-                    btnC.setText(test.ans3);
-                    btnD.setText(test.ans4);
+                    int random = generateRandomNumber(1,4);
+                    if (random == 1) {
+                        btnA.setText(test.ans1);
+                        btnB.setText(test.ans2);
+                        btnC.setText(test.ans3);
+                        btnD.setText(test.ans4);
+                        listItem = new ListResultItems(test.ques, test.ans1, test.ans2, test.ans3, test.ans4, test.result, 0);
+                    } else if (random == 2) {
+                        btnA.setText(test.ans4);
+                        btnB.setText(test.ans3);
+                        btnC.setText(test.ans2);
+                        btnD.setText(test.ans1);
+                        listItem = new ListResultItems(test.ques, test.ans4, test.ans3, test.ans2, test.ans1, test.result, 0);
+                    } else if (random == 3) {
+                        btnA.setText(test.ans1);
+                        btnB.setText(test.ans3);
+                        btnC.setText(test.ans2);
+                        btnD.setText(test.ans4);
+                        listItem = new ListResultItems(test.ques, test.ans1, test.ans3, test.ans2, test.ans4, test.result, 0);
+                    } else if (random == 4){
+                        btnA.setText(test.ans4);
+                        btnB.setText(test.ans1);
+                        btnC.setText(test.ans2);
+                        btnD.setText(test.ans3);
+                        listItem = new ListResultItems(test.ques, test.ans4, test.ans1, test.ans2, test.ans3, test.result, 0);
+                    }
                     Ans = test.result.toString();
-                    listItem = new ListResultItems(test.ques, test.ans1, test.ans2, test.ans3, test.ans4, test.result, 0);
                 } else {
                     Log.w(TAG, "No data found at contracts");
                 }
@@ -308,4 +342,37 @@ public class TestGrammar extends AppCompatActivity {
         ViewResult.listItems.add(listItem);
         listItem = null;
     }
+
+
+
+    public int generateUniqueRandomNumber(int min, int max) {
+        int range = max - min + 1;
+
+        if (range <= 0) {
+            throw new IllegalArgumentException("Invalid range");
+        }
+
+        if (generatedNumbers.size() == range) {
+            // Nếu tất cả các số trong khoảng đã được tạo, đặt lại danh sách
+            generatedNumbers.clear();
+        }
+
+        int randomNumber;
+        do {
+            randomNumber = random.nextInt(range) + min;
+        } while (generatedNumbers.contains(randomNumber));
+
+        generatedNumbers.add(randomNumber);
+        return randomNumber;
+    }
+
+    public int generateRandomNumber(int min, int max) {
+        if (min > max) {
+            throw new IllegalArgumentException("Invalid range");
+        }
+
+        int range = max - min + 1;
+        return random.nextInt(range) + min;
+    }
+
 }
