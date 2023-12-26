@@ -29,29 +29,34 @@ public class TestResult extends AppCompatActivity {
         Intent intent = getIntent();
         String numCorrect = intent.getStringExtra("numCorrect");
         String numWrong = intent.getStringExtra("numWrong");
-        TextView tvNumNotAns = (TextView) findViewById(R.id.tvNumNotAns);
-        tvNumCorrect.setText(numCorrect);
-        tvNumWrong.setText(numWrong);
-        int numberCorrect = Integer.parseInt(numCorrect);
-        int numberWrong = Integer.parseInt(numWrong);
-        int index = numberCorrect * 10;
-        progressBar.setProgress(index);
-        tvCorrect.setText(index+"%");
-        String indexStringNotAns = Integer.toString(10-numberCorrect-numberWrong);
-        tvNumNotAns.setText(indexStringNotAns);
-        btnHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(TestResult.this, Test.class);
-                startActivity(intent1);
-            }
-        });
-        btnViewResult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent viewResult = new Intent(TestResult.this, ViewResult.class);
-                startActivity(viewResult);
-            }
-        });
+        if (numCorrect != null || numWrong != null) {
+
+            TextView tvNumNotAns = (TextView) findViewById(R.id.tvNumNotAns);
+            tvNumCorrect.setText(numCorrect);
+            tvNumWrong.setText(numWrong);
+            int numberCorrect = Integer.parseInt(numCorrect);
+            int numberWrong = Integer.parseInt(numWrong);
+            int index = numberCorrect * 10;
+            progressBar.setProgress(index);
+            tvCorrect.setText(index + "%");
+            String indexStringNotAns = Integer.toString(10 - numberCorrect - numberWrong);
+            tvNumNotAns.setText(indexStringNotAns);
+
+        }
+            btnHome.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent1 = new Intent(TestResult.this, Test.class);
+                    startActivity(intent1);
+                }
+            });
+            btnViewResult.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent viewResult = new Intent(TestResult.this, ViewResult.class);
+                    startActivity(viewResult);
+                }
+            });
+
     }
 }

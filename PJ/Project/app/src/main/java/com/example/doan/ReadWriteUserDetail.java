@@ -1,5 +1,7 @@
 package com.example.doan;
+import androidx.annotation.Nullable;
 
+import java.util.List;
 public class ReadWriteUserDetail {
     public String username, phonenumber, email, address, password, rank, score;
 
@@ -61,6 +63,10 @@ public class ReadWriteUserDetail {
         this.password = password;
         this.phonenumber = phonenumber;
         this.address = address;
+        this.rank = rank;
+    }
+
+    public void setRank(String rank) {
         this.rank = rank;
     }
 }

@@ -48,7 +48,7 @@ public class ViewResult extends AppCompatActivity {
 
     }
     public void Back(){
-        Intent intent = new Intent(this, Test.class);
+        Intent intent = new Intent(this, TestResult.class);
         startActivity(intent);
     }
 }

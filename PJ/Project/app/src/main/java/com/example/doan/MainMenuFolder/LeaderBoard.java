@@ -23,6 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class LeaderBoard extends AppCompatActivity {
@@ -75,6 +77,18 @@ public class LeaderBoard extends AppCompatActivity {
                     list.add(readWriteUserDetail);
                 }
                 list.stream().count();
+                Collections.sort(list, new Comparator<ReadWriteUserDetail>() {
+                    @Override
+                    public int compare(ReadWriteUserDetail o1, ReadWriteUserDetail o2) {
+                        return Integer.compare(Integer.parseInt(o2.getScore()), Integer.parseInt(o1.getScore()));
+                    }
+                });
+
+                // Gán rank dựa trên thứ tự
+                int rank = 1;
+                for (ReadWriteUserDetail user : list) {
+                    user.setRank(String.valueOf(rank++));
+                }
                 adapter.notifyDataSetChanged();
 
             }
