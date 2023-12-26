@@ -19,12 +19,16 @@ import android.widget.Toast;
 import com.example.doan.MainMenuFolder.Test;
 import com.example.doan.R;
 import com.example.doan.TestClass;
+import com.example.doan.ViewResult.ListResultItems;
+import com.example.doan.ViewResult.ViewResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class TestGrammar extends AppCompatActivity {
@@ -44,6 +48,7 @@ public class TestGrammar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testgrammar);
 
+        ViewResult.listItems.clear();
         Button btnNext = (Button) findViewById(R.id.btnNextQues);
         TextView tvQuesCount = (TextView) findViewById(R.id.textViewQuesCount);
         ProgressBar progressBarQues = (ProgressBar) findViewById(R.id.progressQues);
@@ -163,6 +168,7 @@ public class TestGrammar extends AppCompatActivity {
                     btnC.setText(test.ans3);
                     btnD.setText(test.ans4);
                     Ans = test.result.toString();
+                    listItem = new ListResultItems(test.ques, test.ans1, test.ans2, test.ans3, test.ans4, test.result, 0);
                 } else {
                     Log.w(TAG, "No data found at contracts");
                 }
@@ -184,6 +190,8 @@ public class TestGrammar extends AppCompatActivity {
         btnA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int pos = 1;
+                AddQuestion(pos);
                 btnA.setEnabled(false);
                 btnB.setEnabled(false);
                 btnC.setEnabled(false);
@@ -206,6 +214,8 @@ public class TestGrammar extends AppCompatActivity {
         btnB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int pos = 2;
+                AddQuestion(pos);
                 btnA.setEnabled(false);
                 btnB.setEnabled(false);
                 btnC.setEnabled(false);
@@ -228,6 +238,8 @@ public class TestGrammar extends AppCompatActivity {
         btnC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int pos = 3;
+                AddQuestion(pos);
                 btnA.setEnabled(false);
                 btnB.setEnabled(false);
                 btnC.setEnabled(false);
@@ -249,6 +261,8 @@ public class TestGrammar extends AppCompatActivity {
         btnD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int pos = 4;
+                AddQuestion(pos);
                 btnA.setEnabled(false);
                 btnB.setEnabled(false);
                 btnC.setEnabled(false);
@@ -286,5 +300,12 @@ public class TestGrammar extends AppCompatActivity {
         TextView textViewQuesTime = (TextView) findViewById(R.id.textViewQuesTime);
         textViewQuesTime.setText("30s");
         progressBarQuesTime.setProgress(300);
+    }
+    ListResultItems listItem;
+
+    public void AddQuestion(int pos) {
+        listItem.setPos(pos);
+        ViewResult.listItems.add(listItem);
+        listItem = null;
     }
 }
