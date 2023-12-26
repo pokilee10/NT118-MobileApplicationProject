@@ -56,7 +56,7 @@ public class ReadWriteUserDetail {
         a = 1;
     }
 
-    public ReadWriteUserDetail(String username, String email, String password, String phonenumber, String address, String rank)
+    public ReadWriteUserDetail(String username, String email, String password, String phonenumber, String address, String rank, String score)
     {
         this.username =username;
         this.email = email;
@@ -64,6 +64,7 @@ public class ReadWriteUserDetail {
         this.phonenumber = phonenumber;
         this.address = address;
         this.rank = rank;
+        this.score = score;
     }
 
     public void setRank(String rank) {
