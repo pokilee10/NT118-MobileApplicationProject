@@ -90,7 +90,6 @@ public class LeaderBoard extends AppCompatActivity {
                     user.setRank(String.valueOf(rank++));
                 }
                 adapter.notifyDataSetChanged();
-
             }
 
             @Override

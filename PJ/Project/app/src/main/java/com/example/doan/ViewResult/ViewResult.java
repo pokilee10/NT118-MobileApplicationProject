@@ -30,6 +30,8 @@ public class ViewResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_result_questions);
 
+        listItems.stream().count();
+
         btnBack = findViewById(R.id.imgbtn_back);
         recyclerView = findViewById(R.id.recycleviewResultQuestion);
         recyclerView.setHasFixedSize(true);

@@ -11,7 +11,11 @@ import android.widget.TextView;
 
 import com.example.doan.MainMenuFolder.Test;
 import com.example.doan.R;
+import com.example.doan.ViewResult.ListResultItems;
 import com.example.doan.ViewResult.ViewResult;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestResult extends AppCompatActivity {
 
