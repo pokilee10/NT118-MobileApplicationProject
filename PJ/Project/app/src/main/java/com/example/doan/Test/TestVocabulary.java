@@ -164,7 +164,7 @@ public class TestVocabulary extends AppCompatActivity {
         btnD.setEnabled(true);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        String indexString = Integer.toString(generateUniqueRandomNumber(1,10));
+        String indexString = Integer.toString(generateUniqueRandomNumber(1,50));
         DatabaseReference myRef = database.getReference("testvocab").child(indexString);
 
         // Read from the database

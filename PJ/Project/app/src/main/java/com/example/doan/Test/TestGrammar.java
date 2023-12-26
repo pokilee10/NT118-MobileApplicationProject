@@ -25,6 +25,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -165,8 +166,8 @@ public class TestGrammar extends AppCompatActivity {
         btnD.setEnabled(true);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        String indexString = Integer.toString(generateUniqueRandomNumber(1, 50));
 
-        String indexString = Integer.toString(generateUniqueRandomNumber(1, 10));
         DatabaseReference myRef = database.getReference("testgrammar").child(indexString);
 
         // Read from the database
