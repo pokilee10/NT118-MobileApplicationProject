@@ -1,5 +1,8 @@
 package com.example.doan.Test;
 
+import static com.example.doan.Account.firebaseUser;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,16 +12,35 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.doan.Account;
 import com.example.doan.MainMenuFolder.Test;
 import com.example.doan.R;
+import com.example.doan.ReadWriteUserDetail;
 import com.example.doan.ViewResult.ListResultItems;
 import com.example.doan.ViewResult.ViewResult;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TestResult extends AppCompatActivity {
 
+    int score;
+    int numberCorrect;
+    String username, userid;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +55,17 @@ public class TestResult extends AppCompatActivity {
         Intent intent = getIntent();
         String numCorrect = intent.getStringExtra("numCorrect");
         String numWrong = intent.getStringExtra("numWrong");
+
+        mAuth = FirebaseAuth.getInstance();
+        firebaseUser = mAuth.getCurrentUser();
+        userid = firebaseUser.getUid();
+
         if (numCorrect != null || numWrong != null) {
 
             TextView tvNumNotAns = (TextView) findViewById(R.id.tvNumNotAns);
             tvNumCorrect.setText(numCorrect);
             tvNumWrong.setText(numWrong);
-            int numberCorrect = Integer.parseInt(numCorrect);
+            numberCorrect = Integer.parseInt(numCorrect);
             int numberWrong = Integer.parseInt(numWrong);
             int index = numberCorrect * 10;
             progressBar.setProgress(index);
@@ -47,20 +74,73 @@ public class TestResult extends AppCompatActivity {
             tvNumNotAns.setText(indexStringNotAns);
 
         }
-            btnHome.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent1 = new Intent(TestResult.this, Test.class);
-                    startActivity(intent1);
-                }
-            });
-            btnViewResult.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent viewResult = new Intent(TestResult.this, ViewResult.class);
-                    startActivity(viewResult);
-                }
-            });
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showUserInfo(firebaseUser);
+                Intent intent1 = new Intent(TestResult.this, Test.class);
+                startActivity(intent1);
+            }
+        });
+        btnViewResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewResult = new Intent(TestResult.this, ViewResult.class);
+                startActivity(viewResult);
+            }
+        });
 
+    }
+
+    private void showUserInfo(FirebaseUser firebaseUser) {
+
+        String userID = firebaseUser.getUid();
+
+        FirebaseUser firebaseUser1 = FirebaseAuth.getInstance().getCurrentUser();
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
+
+        DatabaseReference databaseReference = firebaseDatabase.getReference("users");
+
+        databaseReference.child(userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ReadWriteUserDetail readWriteUserDetail = snapshot.getValue(ReadWriteUserDetail.class);
+                if (readWriteUserDetail != null) {
+                    score = Integer.parseInt(readWriteUserDetail.score);
+                    score = score + numberCorrect;
+                    username = readWriteUserDetail.username;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        String Score = Integer.toString(score);
+        Map<String, Object> updateData = new HashMap<>();
+        updateData.put("score", Score);
+        updateData.put("username", username);
+
+
+
+        databaseReference.child(userID).updateChildren(updateData).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    // Cập nhật display name của user
+                    UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
+                            .setDisplayName(username)
+                            .build();
+
+                    firebaseUser.updateProfile(profileChangeRequest);
+                } else {
+                    // Xử lý khi cập nhật không thành công
+                }
+            }
+        });
     }
 }

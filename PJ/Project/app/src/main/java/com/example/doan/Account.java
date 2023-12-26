@@ -32,6 +32,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class Account extends AppCompatActivity implements EditProfileDialog.EditProfileDialogListner {
 
     public static final int PICK_IMAGES_REQUEST = 1;
@@ -45,6 +50,12 @@ public class Account extends AppCompatActivity implements EditProfileDialog.Edit
     public static FirebaseUser firebaseUser;
     private TextView tv_ChangePass;
 
+    List<ReadWriteUserDetail> list;
+    DatabaseReference databaseReference;
+    private String CurEmail;
+    private String a;
+    private String currank;
+    private int index = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +76,7 @@ public class Account extends AppCompatActivity implements EditProfileDialog.Edit
         firebaseUser = mAuth.getCurrentUser();
         userid = firebaseUser.getUid();
         storageReference = FirebaseStorage.getInstance().getReference("DisplayPics");
+        list = new ArrayList<>();
 
         Uri uri = firebaseUser.getPhotoUrl();
         Picasso.get().load(uri).into(avatar);
@@ -100,8 +112,64 @@ public class Account extends AppCompatActivity implements EditProfileDialog.Edit
                 Back();
             }
         });
+
+        getListUserfromRealtimeDTB();
     }
 
+    private void getListUserfromRealtimeDTB()
+    {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("users");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                ReadWriteUserDetail readWriteUserDetail;
+
+
+                for(DataSnapshot dataSnapshot : snapshot.getChildren())
+                {
+
+                    readWriteUserDetail = dataSnapshot.getValue(ReadWriteUserDetail.class);
+                    list.add(readWriteUserDetail);
+                    if(list.get(index).email.equals(CurEmail))
+                    {
+                        a = list.get(index).email;
+
+                    }
+                    else
+                    {
+                        index++;
+                    }
+                }
+
+                list.stream().count();
+                Collections.sort(list, new Comparator<ReadWriteUserDetail>() {
+                    @Override
+                    public int compare(ReadWriteUserDetail o1, ReadWriteUserDetail o2) {
+                        return Integer.compare(Integer.parseInt(o2.getScore()), Integer.parseInt(o1.getScore()));
+                    }
+                });
+
+
+                // Gán rank dựa trên thứ tự
+                int rank = 1;
+                for (ReadWriteUserDetail user : list) {
+                    user.setRank(String.valueOf(rank++));
+                    if (user.getEmail().equals(CurEmail))
+                    {
+                        tvrank.setText(user.getRank());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
     public void openDialgChangPass()
     {
@@ -182,11 +250,13 @@ public class Account extends AppCompatActivity implements EditProfileDialog.Edit
                     phonenumber = readWriteUserDetail.phonenumber;
                     address = readWriteUserDetail.address;
                     rank = readWriteUserDetail.rank;
+                    CurEmail = email;
+
 
                     tvusername.setText(username);
                     tvemail.setText(email);
                     tvphonenumber.setText(phonenumber);
-                    tvrank.setText(rank);
+                    //tvrank.setText(rank);
                     tvaddress.setText(address);
                     Glide.with(Account.this).load(firebaseUser.getPhotoUrl()).error(R.drawable.manavatar).into(avatar);
                 }
