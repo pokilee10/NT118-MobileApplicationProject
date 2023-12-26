@@ -19,11 +19,15 @@ import android.widget.Toast;
 import com.example.doan.MainMenuFolder.Test;
 import com.example.doan.R;
 import com.example.doan.TestClass;
+import com.example.doan.ViewResult.ListResultItems;
+import com.example.doan.ViewResult.ViewResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.checkerframework.checker.units.qual.A;
 
 import java.util.Locale;
 
@@ -38,6 +42,7 @@ public class TestVocabulary extends AppCompatActivity {
     private int numWrong = 0;
     private int index = 1;
     private int numques = 1;
+    private ListResultItems listItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -163,6 +168,7 @@ public class TestVocabulary extends AppCompatActivity {
                     btnC.setText(test.ans3);
                     btnD.setText(test.ans4);
                     Ans = test.result.toString();
+                    listItem = new ListResultItems(test.ques, test.ans1, test.ans2, test.ans3, test.ans4, test.result, 0);
                 } else {
                     Log.w(TAG, "No data found at contracts");
                 }
@@ -184,6 +190,7 @@ public class TestVocabulary extends AppCompatActivity {
         btnA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AddQuestion(1);
                 btnA.setEnabled(false);
                 btnB.setEnabled(false);
                 btnC.setEnabled(false);
@@ -206,6 +213,7 @@ public class TestVocabulary extends AppCompatActivity {
         btnB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AddQuestion(2);
                 btnA.setEnabled(false);
                 btnB.setEnabled(false);
                 btnC.setEnabled(false);
@@ -228,6 +236,7 @@ public class TestVocabulary extends AppCompatActivity {
         btnC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AddQuestion(3);
                 btnA.setEnabled(false);
                 btnB.setEnabled(false);
                 btnC.setEnabled(false);
@@ -249,6 +258,7 @@ public class TestVocabulary extends AppCompatActivity {
         btnD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AddQuestion(4);
                 btnA.setEnabled(false);
                 btnB.setEnabled(false);
                 btnC.setEnabled(false);
@@ -286,5 +296,11 @@ public class TestVocabulary extends AppCompatActivity {
         TextView textViewQuesTime = (TextView) findViewById(R.id.textViewQuesTime);
         textViewQuesTime.setText("30s");
         progressBarQuesTime.setProgress(300);
+    }
+
+    public void AddQuestion(int pos) {
+        listItem.setPos(pos);
+        ViewResult.listItems.add(listItem);
+        listItem = null;
     }
 }

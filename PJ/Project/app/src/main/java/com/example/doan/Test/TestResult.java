@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.doan.MainMenuFolder.Test;
 import com.example.doan.R;
+import com.example.doan.ViewResult.ViewResult;
 
 public class TestResult extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public class TestResult extends AppCompatActivity {
         TextView tvCorrect = (TextView) findViewById(R.id.textViewQuesTime);
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBarQuesTime);
         Button btnHome = (Button) findViewById(R.id.btnbacktohome);
+        Button btnViewResult = findViewById(R.id.buttonViewResult);
         Intent intent = getIntent();
         String numCorrect = intent.getStringExtra("numCorrect");
         String numWrong = intent.getStringExtra("numWrong");
@@ -42,6 +44,13 @@ public class TestResult extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent1 = new Intent(TestResult.this, Test.class);
                 startActivity(intent1);
+            }
+        });
+        btnViewResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewResult = new Intent(TestResult.this, ViewResult.class);
+                startActivity(viewResult);
             }
         });
     }
