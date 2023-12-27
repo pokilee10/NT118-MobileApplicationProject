@@ -41,9 +41,9 @@ public class Account extends AppCompatActivity implements EditProfileDialog.Edit
 
     public static final int PICK_IMAGES_REQUEST = 1;
     private FirebaseAuth mAuth;
-    private TextView tvusername, tvemail, tvphonenumber, tvaddress, tvrank;
+    private TextView tvusername, tvemail, tvphonenumber, tvaddress, tvrank, tvscore;
     private ImageView avatar;
-    private String username, email, phonenumber, address, rank;
+    private String username, email, phonenumber, address, rank, score;
     private StorageReference storageReference;
     private Uri uriImage;
     public static String userid;
@@ -71,6 +71,7 @@ public class Account extends AppCompatActivity implements EditProfileDialog.Edit
         tvrank = findViewById(R.id.tvRank);
         avatar = findViewById(R.id.img_avatar);
         tvaddress = findViewById(R.id.tvAddress);
+        tvscore = findViewById(R.id.tvScore);
         tv_ChangePass = findViewById(R.id.txtbtn_changpass);
 
         mAuth = FirebaseAuth.getInstance();
@@ -257,6 +258,7 @@ public class Account extends AppCompatActivity implements EditProfileDialog.Edit
                     phonenumber = readWriteUserDetail.phonenumber;
                     address = readWriteUserDetail.address;
                     rank = readWriteUserDetail.rank;
+                    score = readWriteUserDetail.score;
                     CurEmail = email;
 
 
@@ -264,6 +266,7 @@ public class Account extends AppCompatActivity implements EditProfileDialog.Edit
                     tvemail.setText(email);
                     tvphonenumber.setText(phonenumber);
                     //tvrank.setText(rank);
+                    tvscore.setText(score);
                     tvaddress.setText(address);
                     Glide.with(Account.this).load(firebaseUser.getPhotoUrl()).error(R.drawable.manavatar).into(avatar);
                 }

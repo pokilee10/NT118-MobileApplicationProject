@@ -55,6 +55,7 @@ public class TestResult extends AppCompatActivity {
         TextView tvNumCorrect = (TextView) findViewById(R.id.tvNumCorrect);
         TextView tvNumWrong = (TextView) findViewById(R.id.tvNumWrong);
         TextView tvCorrect = (TextView) findViewById(R.id.textViewQuesTime);
+        TextView tvCongra = (TextView) findViewById(R.id.tvCongratutation);
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBarQuesTime);
         Button btnHome = (Button) findViewById(R.id.btnbacktohome);
         Button btnViewResult = findViewById(R.id.buttonViewResult);
@@ -75,6 +76,7 @@ public class TestResult extends AppCompatActivity {
         tvCorrect.setText(index + "%");
         String indexStringNotAns = Integer.toString(10 - numberCorrect - numberWrong);
         tvNumNotAns.setText(indexStringNotAns);
+        tvCongra.setText("Congratulations you get " + numCorrect + " more points!!!");
 
 
 

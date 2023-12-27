@@ -57,7 +57,7 @@ public class LeaderBoard extends AppCompatActivity {
 
         // mãi mãi một cái bìm
         Button btnNotification = findViewById(R.id.btnNotification);
-
+        RandomVoc();
 
         btnNotification.setOnClickListener(v -> {
             Notification notification = new NotificationCompat.Builder(this, MyNotification.CHANNEL_ID)

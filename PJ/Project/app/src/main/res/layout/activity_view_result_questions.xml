@@ -28,7 +28,8 @@
         android:id="@+id/recycleviewResultQuestion"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="70dp">
 
     </androidx.recyclerview.widget.RecyclerView>
