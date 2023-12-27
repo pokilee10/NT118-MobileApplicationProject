@@ -57,6 +57,7 @@ public class Account extends AppCompatActivity implements EditProfileDialog.Edit
     private String currank;
     private int index = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +115,7 @@ public class Account extends AppCompatActivity implements EditProfileDialog.Edit
         });
 
         getListUserfromRealtimeDTB();
+
     }
 
     private void getListUserfromRealtimeDTB()
@@ -160,6 +162,11 @@ public class Account extends AppCompatActivity implements EditProfileDialog.Edit
                     if (user.getEmail().equals(CurEmail))
                     {
                         tvrank.setText(user.getRank());
+                        ImageView imvBadge = (ImageView) findViewById(R.id.imageView4);
+                        String rankString = tvrank.getText().toString();
+                        if (rankString.equals("1")) imvBadge.setImageResource(R.drawable.badge1);
+                        else if (rankString.equals("2")) imvBadge.setImageResource(R.drawable.badge2);
+                        else if (rankString.equals("3")) imvBadge.setImageResource(R.drawable.badge3);
                     }
                 }
             }
