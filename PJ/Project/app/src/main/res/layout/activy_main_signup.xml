@@ -47,6 +47,7 @@
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/outlinedTextFieldAddress"
             android:layout_marginTop="40dp"
             />
 
@@ -56,8 +57,7 @@
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imlogo"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="Username">
 

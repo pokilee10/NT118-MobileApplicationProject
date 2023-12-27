@@ -76,7 +76,7 @@ public class TestResult extends AppCompatActivity {
         tvCorrect.setText(index + "%");
         String indexStringNotAns = Integer.toString(10 - numberCorrect - numberWrong);
         tvNumNotAns.setText(indexStringNotAns);
-        tvCongra.setText("Congratulations you get " + numCorrect + " more points!!!");
+        tvCongra.setText("Congratulations you get " + numCor + " more points!!!");
 
 
 
